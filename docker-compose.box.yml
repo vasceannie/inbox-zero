@@ -34,8 +34,8 @@ services:
     expose:
       - 80
     image: hiett/serverless-redis-http:latest
-    # env_file:
-    #   - ./apps/web/.env
+    env_file:
+      - /home/inbox-zero/apps/web/.env
     environment:
       SRH_MODE: env
       SRH_TOKEN: ${UPSTASH_REDIS_TOKEN}
@@ -51,8 +51,8 @@ services:
     build:
       context: .
       dockerfile: ./docker/Dockerfile.prod
-    # env_file:
-    #   - ./apps/web/.env
+    env_file:
+      - /home/inbox-zero/apps/web/.env
     depends_on:
       - db
       - redis
